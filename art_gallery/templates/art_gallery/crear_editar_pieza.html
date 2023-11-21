@@ -6,13 +6,18 @@
     <title>Crear/Editar Obra de Arte - Vende tu Arte</title>
     <style>
         body {
-            background-color: #E6E6F5; /* Color pastel */
+            background-color: #f7ccda; /* Color pastel */
         }
     </style>
 </head>
 <body>
     <h1>Crear/Editar Obra de Arte</h1>
-    <!-- Formulario de creación/edición -->
-    <button>Subir Información</button>
+
+    <!-- Formulario para crear/editar obra de arte -->
+    <form method="post" enctype="multipart/form-data" action="{% url 'create_edit_art_piece' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
 </body>
 </html>

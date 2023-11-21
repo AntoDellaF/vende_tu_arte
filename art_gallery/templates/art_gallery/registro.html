@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Vende tu Arte</title>
+    <style>
+        body {
+            background-color: #d7d7f1; /* Color pastel */
+        }
+    </style>
+</head>
+<body>
+    <h1>Registro</h1>
+
+    <!-- Formulario de registro -->
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Registrarse</button>
+    </form>
+
+    {% if form.errors %}
+        <div style="color: rgb(3, 119, 130);">
+            {{ form.non_field_errors }}
+            {% for field, errors in form.errors.items %}
+                {{ field }}: {{ errors.0 }}<br>
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>
+</html>

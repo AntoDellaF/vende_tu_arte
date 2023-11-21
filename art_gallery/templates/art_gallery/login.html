@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Vende tu Arte</title>
+    <style>
+        body {
+            background-color: rgb(247, 222, 176); /* Color pastel */
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciar Sesión</h1>
+
+    <!-- Formulario de inicio de sesión -->
+    <form method="post" action="{% url 'user_login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+
+    {% if form.non_field_errors %}
+        <div style="color: rgb(58, 90, 154)(164, 29, 29);">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+</body>
+</html>
