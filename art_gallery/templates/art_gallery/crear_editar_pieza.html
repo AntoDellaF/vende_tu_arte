@@ -13,8 +13,7 @@
 <body>
     <h1>Crear/Editar Obra de Arte</h1>
 
-    <!-- Formulario para crear/editar obra de arte -->
-    <form method="post" enctype="multipart/form-data" action="{% url 'create_edit_art_piece' %}">
+    <form method="post" enctype="multipart/form-data" action="{% url 'crear_editar_pieza' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Guardar</button>

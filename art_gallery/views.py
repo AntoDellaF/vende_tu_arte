@@ -24,7 +24,7 @@ def registro(request):
 
     return render(request, 'art_gallery/registro.html', {'form': form})
 
-def user_login(request):
+def login(request):
     if request.method == 'POST':
         form = CustomAuthenticationForm(request, request.POST)
         if form.is_valid():

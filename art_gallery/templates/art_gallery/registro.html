@@ -13,8 +13,7 @@
 <body>
     <h1>Registro</h1>
 
-    <!-- Formulario de registro -->
-    <form method="post" action="{% url 'register' %}">
+    <form method="post" action="{% url 'registro' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Registrarse</button>
