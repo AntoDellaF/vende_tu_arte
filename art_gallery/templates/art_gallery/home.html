@@ -6,15 +6,68 @@
     <title>Inicio - Vende tu Arte</title>
     <style>
         body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             background-color: #F5E6E6; /* Color pastel */
+        }
+
+        #container {
+            display: flex;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        #left-section {
+            flex: 1;
+        }
+
+        #right-section {
+            flex: 2;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    <h1>Bienvenido a Vende tu Arte</h1>
-    <a href="{% url 'art_pieces' %}">Ver Obras de Arte</a>
-    <a href="{% url 'sobre_nosotros' %}">Sobre Nosotros</a>
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'registro' %}">Registrate</a>
+    <div id="container">
+        <div id="left-section">
+            <img src="/Users/antonelladellafesta/Desktop/python /VendeTuArte/vende_tu_arte/art_gallery/img/IMG_2707.jpg" alt="Imagen de la web">
+        </div>
+        <div id="right-section">
+            <h1>Bienvenido a Vende tu Arte</h1>
+            <a href="{% url 'art_pieces' %}">Ver Obras de Arte</a>
+            <a href="{% url 'sobre_nosotros' %}">Sobre Nosotros</a>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'registro' %}">Regístrate</a>
+        </div>
+    </div>
 </body>
 </html>
