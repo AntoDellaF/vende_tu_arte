@@ -6,12 +6,40 @@
     <title>Acerca de Nosotros - Vende tu Arte</title>
     <style>
         body {
-            background-color: #e4f7e4; /* Color pastel */
+            margin: 0;
+            padding: 0;
+            background-image: url('/img/"La_noche_estrellada"_de_Van_gogh.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            font-family: 'copperplate', bold;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.908); 
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        p {
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
-    <h1>Acerca de Nosotros</h1>
-    <p>Queremos darle un espacio a todos los artistas, por eso creamos esta plataforma virtual para que todos los artistas puedan compartir y vender su arte de manera sencilla y fácil.</p>
+    <div class="overlay">
+        <h1>Acerca de Nosotros</h1>
+        <p>Queremos darle un espacio a todos los artistas, por eso creamos esta plataforma virtual para que todos los artistas puedan compartir y vender su arte de manera sencilla y fácil.</p>
+    </div>
 </body>
 </html>

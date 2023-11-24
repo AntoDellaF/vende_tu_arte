@@ -8,12 +8,12 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'copperplate', bold;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #F5E6E6; /* Color pastel */
+            background-color: #F5E6E6; 
         }
 
         #container {
@@ -59,10 +59,10 @@
 <body>
     <div id="container">
         <div id="left-section">
-            <img src="/Users/antonelladellafesta/Desktop/python /VendeTuArte/vende_tu_arte/art_gallery/img/IMG_2707.jpg" alt="Imagen de la web">
+            <img src="/img/La_noche_estrellada_de_Van_gogh.jpg" alt="Imagen de la web">
         </div>
         <div id="right-section">
-            <h1>Bienvenido a Vende tu Arte</h1>
+            <h1>Bienvenido a Vende tu Arte</h1> 
             <a href="{% url 'art_pieces' %}">Ver Obras de Arte</a>
             <a href="{% url 'sobre_nosotros' %}">Sobre Nosotros</a>
             <a href="{% url 'login' %}">Login</a>
