@@ -6,13 +6,29 @@
     <title>Obras de Arte - Vende tu Arte</title>
     <style>
         body {
-            background-color: #F5E6F5; /* Color pastel */
+            background-color: #F5E6F5; 
+            font-family: Arial, sans-serif;
+        }
+        .art-piece {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+        .art-piece img {
+            max-width: 150px;  
+            height: auto;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <h1>Obras de Arte Disponibles</h1>
    
-    <button>Comprar</button>
+    {% for obra in obras %}
+        <div class="art-piece">
+            <img src="{{ obra.image.url }}" alt="{{ obra.title }}";onclick="location.href='{% url 'detalle_obra' obra.id %}'">
+            <p>{{ obra.title }} - {{ obra.author.username }}</p>
+        </div>
+    {% endfor %}
 </body>
 </html>

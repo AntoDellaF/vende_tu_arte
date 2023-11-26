@@ -1,5 +1,4 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect,  get_object_or_404
 from .forms import CustomUserCreationForm
 from .models import ArtPiece 
 from django.contrib.auth import login 
@@ -17,7 +16,7 @@ def registro(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            # Puedes redirigir a la página de inicio de sesión u otra página después del registro
+            
             return redirect('login')
     else:
         form = CustomUserCreationForm()
@@ -30,26 +29,34 @@ def login(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            # Redirigir a la página de inicio o a la que desees después del inicio de sesión
-            return redirect('home')
+            
+            return redirect('art_pieces')
     else:
         form = CustomAuthenticationForm()
 
     return render(request, 'art_gallery/login.html', {'form': form})
 
 def art_pieces(request):
-    art_pieces = ArtPiece.objects.all()
-    return render(request, 'art_gallery/art_pieces.html', {'art_pieces': art_pieces})
+    obras = ArtPiece.objects.all()
+    return render(request, 'art_pieces.html', {'obras': obras})
+
+def detalle_obra(request, obra_id):
+    obra = get_object_or_404(ArtPiece, id=obra_id)
+    return render(request, 'detalle_obra.html', {'obra': obra})
 
 def crear_editar_pieza(request):
     if request.method == 'POST':
         form = ArtPieceForm(request.POST, request.FILES)
         if form.is_valid():
             art_piece = form.save()
-            # Puedes agregar lógica adicional o redirigir a otra página después de guardar la obra de arte
+           
             return redirect('art_pieces')
     else:
         form = ArtPieceForm()
 
     return render(request, 'art_gallery/crear_editar_pieza.html', {'form': form})
+
+def comprar_obra(request, obra_id):
+   #formulario y redirigir al pago?
+    return redirect('detalle_obra', obra_id=obra_id)
 
